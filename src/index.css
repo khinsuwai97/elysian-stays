@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap');
+
+@import 'tailwindcss';
+@theme {
+  /* sand */
+  --color-sand-50: #fdfaf6;
+  --color-sand-100: #f7f0e8;
+  --color-sand-200: #ede4d8;
+  --color-sand-300: #dfd2bf;
+  --color-sand-400: #c9b89a;
+  --color-sand-500: #b09d7e;
+  --color-sand-600: #8d7860;
+  --color-sand-700: #6d5d48;
+  --color-sand-800: #4a3f32;
+  --color-sand-900: #2d2519;
+
+  /* forest */
+  --color-forest-50: #f4f7f5;
+  --color-forest-100: #e4ebe7;
+  --color-forest-200: #c7d7cd;
+  --color-forest-300: #a1bbad;
+  --color-forest-400: #759588;
+  --color-forest-500: #5a7869;
+  --color-forest-600: #476052;
+  --color-forest-700: #3a4f43;
+  --color-forest-800: #2d3d34;
+  --color-forest-900: #1a2620;
+
+  /* sage */
+  --color-sage-50: #f7f9f7;
+  --color-sage-100: #eef2ee;
+  --color-sage-200: #dce5dc;
+  --color-sage-300: #c0d2c0;
+  --color-sage-400: #9db79d;
+  --color-sage-500: #7a987a;
+  --color-sage-600: #5f7a5f;
+  --color-sage-700: #4d624d;
+  --color-sage-800: #3c4d3c;
+  --color-sage-900: #293329;
+
+  /* single colors */
+  --color-terracotta: #c87461;
+  --color-gold: #d4af37;
+  --color-cream: #fef9f3;
+
+  /* fonts */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Crimson Pro', serif;
+}
