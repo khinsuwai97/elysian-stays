@@ -1,8 +1,9 @@
 import React from 'react';
-
+import Logo from './components/Logo';
 const App = () => {
   return (
-    <div className="bg-sand-100 text-forest-800 font-[--font-body] p-6">
+    <div className="bg-sand-100 text-forest-800 p-6">
+      <Logo />
       App
     </div>
   );
