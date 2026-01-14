@@ -156,7 +156,7 @@ export const mockStayDuration: StayDuration[] = [
 ];
 
 export const mockTodayActivity: TodayActivity[] = [
-  { name: "Jonas Schmedtmann", status: "departing", nights: 5, flag: "🇩🇪" },
+  { name: "Amada Rose", status: "departing", nights: 5, flag: "🇩🇪" },
   { name: "David Smith", status: "arriving", nights: 11, flag: "🇺🇸" },
   { name: "Maria Rodriguez", status: "departing", nights: 2, flag: "🇪🇸" },
   { name: "Abdul Rahman", status: "arriving", nights: 5, flag: "🇸🇦" },

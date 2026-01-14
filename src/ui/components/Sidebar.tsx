@@ -12,7 +12,7 @@ import {
     MoonIcon,
     SunIcon,
     LogoutIcon
-} from '../ui/Icons';
+} from './Icons';
 
 interface NavItem {
     path: string;
