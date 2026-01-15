@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import StatCard from './ui/StatCard';
-import { CalendarIcon, DollarIcon, CheckIcon, ChartIcon } from './ui/Icons';
-import { mockBookings, mockCabins, mockSalesData, mockStayDuration, mockTodayActivity } from '../data/mockData';
+import StatCard from '../components/StatCard';
+import { CalendarIcon, DollarIcon, CheckIcon, ChartIcon } from '../components/Icons';
+import { mockBookings, mockCabins, mockSalesData, mockStayDuration, mockTodayActivity } from '../../mockData';
 
 export default function Dashboard() {
     const [period, setPeriod] = useState('7');

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { mockBookings } from '../data/mockData';
-import { MoreIcon } from '../components/ui/Icons';
-import { BookingStatus, SortOrder } from '../types';
+import { mockBookings } from '../../mockData';
+import { MoreIcon } from '../components/Icons';
+import type { BookingStatus,SortOrder } from '../../types';
+
 
 export default function Bookings() {
     const [filter, setFilter] = useState<BookingStatus>('all');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mockSettings } from '../data/mockData';
+import { mockSettings } from '../../mockData';
 
 
 export default function Settings() {

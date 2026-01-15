@@ -1,9 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { ThemeProvider } from './contexts/ThemeContext';
-import AppLayout from './components/layout/AppLayout';
-import LoginPage from './pages/Login';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
+import AppLayout from './ui/AppLayout';
+import LoginPage from './ui/components/Login';
 import Dashboard from './ui/pages/Dashboard';
+import Bookings from './ui/pages/Bookings';
+import Cabins from './ui/pages/Cabins';
+import Users from './ui/pages/Users';
+import Settings from './ui/pages/Settings';
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
 
@@ -30,7 +35,7 @@ function AppRoutes() {
 
   return (
     <Routes>
-      {/* <Route
+      <Route
         path="/login"
         element={user ? <Navigate to="/" replace /> : <LoginPage />}
       />
@@ -41,13 +46,13 @@ function AppRoutes() {
             <AppLayout />
           </ProtectedRoute>
         }
-      > */}
-      <Route index element={<Dashboard />} />
-      <Route path="bookings" element={<Bookings />} />
-      <Route path="cabins" element={<Cabins />} />
-      <Route path="users" element={<Users />} />
-      <Route path="settings" element={<Settings />} />
-      {/* </Route> */}
+      >
+        <Route index element={<Dashboard />} />
+        <Route path="bookings" element={<Bookings />} />
+        <Route path="cabins" element={<Cabins />} />
+        <Route path="users" element={<Users />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
     </Routes>
   );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-// import Logo from './Logo';
-// import { useAuth } from '../../contexts/AuthContext';
-// import { useTheme } from '../../contexts/ThemeContext';
+import Logo from './Logo';
+import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 import {
     HomeIcon,
     CalendarIcon,

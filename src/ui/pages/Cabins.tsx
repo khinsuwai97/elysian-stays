@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { mockCabins } from '../data/mockData';
-import { UsersIcon, MoreIcon } from '../components/ui/Icons';
+import { mockCabins } from '../../mockData';
+import { UsersIcon,MoreIcon } from '../components/Icons';
 
 export default function Cabins() {
     const [showModal, setShowModal] = useState(false);
