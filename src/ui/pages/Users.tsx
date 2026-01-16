@@ -1,14 +1,14 @@
 export default function Users() {
     return (
-        <div className="p-8 max-w-7xl mx-auto">
-            <div className="flex items-center justify-between mb-8 animate-fadeIn">
-                <h1 className="text-4xl font-display font-semibold text-sand-900 dark:text-sand-100">
+        <div className="p-4 sm:p-6 lg:p-8 max-w-[1600px] mx-auto">
+            <div className="mb-6 lg:mb-8 animate-fadeIn">
+                <h1 className="text-3xl lg:text-4xl font-display font-semibold text-sand-900 dark:text-sand-100">
                     Create a new user
                 </h1>
             </div>
 
-            <div className="card p-8 max-w-2xl animate-scaleIn">
-                <form className="space-y-6">
+            <div className="card p-6 lg:p-8 max-w-2xl animate-scaleIn">
+                <form className="space-y-5 lg:space-y-6">
                     <div>
                         <label className="block text-sm font-medium text-sand-700 dark:text-sand-300 mb-2">
                             Full name
