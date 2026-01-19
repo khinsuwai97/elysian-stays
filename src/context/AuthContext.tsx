@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import  type { User } from '../types';
+import type { User } from '../types';
 
 interface AuthContextType {
     user: User | null;
@@ -23,6 +23,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const login = async (email: string, password: string): Promise<User> => {
+        await new Promise((resolve) => setTimeout(resolve, 1500)); // 1.5s delay
         // Mock authentication
         const mockUser: User = {
             id: '1',

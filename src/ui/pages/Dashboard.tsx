@@ -1,17 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import StatCard from '../components/StatCard';
 import { CalendarIcon, DollarIcon, CheckIcon, ChartIcon } from '../components/Icons';
-import { mockBookings, mockCabins, mockSalesData, mockStayDuration, mockTodayActivity } from '../../mockData';
+import { mockSalesData7Days, mockSalesData30Days, mockSalesData90Days, mockStayDuration, mockTodayActivity } from '../../mockData';
 
 export default function Dashboard() {
     const [period, setPeriod] = useState('7');
 
-    const stats = {
-        bookings: mockBookings.length,
-        sales: mockBookings.reduce((sum, b) => sum + b.totalPrice, 0),
-        checkIns: mockBookings.filter(b => b.status === 'checked-in').length,
-        occupancy: Math.round((mockBookings.filter(b => b.status !== 'checked-out').length / mockCabins.length) * 100)
-    };
+    // Get sales data based on selected period
+    const salesData = useMemo(() => {
+        switch (period) {
+            case '30':
+                return mockSalesData30Days;
+            case '90':
+                return mockSalesData90Days;
+            default:
+                return mockSalesData7Days;
+        }
+    }, [period]);
+
+    // Calculate stats based on selected period
+    const stats = useMemo(() => {
+        const totalSales = salesData.reduce((sum, d) => sum + d.total, 0);
+
+        return {
+            bookings: period === '7' ? 4 : period === '30' ? 18 : 52,
+            sales: totalSales,
+            checkIns: period === '7' ? 1 : period === '30' ? 6 : 15,
+            occupancy: period === '7' ? 60 : period === '30' ? 72 : 68
+        };
+    }, [period, salesData]);
 
     return (
         <div className="p-4 sm:p-6 lg:p-8 max-w-[1600px] mx-auto">
@@ -24,9 +41,9 @@ export default function Dashboard() {
                         <button
                             key={days}
                             onClick={() => setPeriod(days)}
-                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${period === days
-                                    ? 'bg-forest-600 text-white shadow-lg'
-                                    : 'bg-sand-200 dark:bg-sand-700 text-sand-700 dark:text-sand-300 hover:bg-sand-300 dark:hover:bg-sand-600'
+                            className={`px-4 py-2 rounded-lg cursor-pointer text-sm font-medium transition-all ${period === days
+                                ? 'bg-forest-600 text-white shadow-lg'
+                                : 'bg-sand-200 dark:bg-sand-700 text-sand-700 dark:text-sand-300 hover:bg-sand-300 dark:hover:bg-sand-600'
                                 }`}
                         >
                             Last {days} days
@@ -72,7 +89,7 @@ export default function Dashboard() {
                         Sales Overview
                     </h3>
                     <div className="space-y-3">
-                        {mockSalesData.map((day, index) => (
+                        {salesData.map((day, index) => (
                             <div key={day.date} className="flex items-center gap-3 lg:gap-4">
                                 <span className="text-xs lg:text-sm text-sand-600 dark:text-sand-400 w-12 lg:w-16 flex-shrink-0">
                                     {day.date}
@@ -168,9 +185,9 @@ export default function Dashboard() {
                                 </div>
                             </div>
                             <span
-                                className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium whitespace-nowrap flex-shrink-0 ${activity.status === 'arriving'
-                                        ? 'bg-sage-100 dark:bg-sage-900 text-sage-700 dark:text-sage-300'
-                                        : 'bg-terracotta bg-opacity-10 text-terracotta'
+                                className={`px-3 cursor-pointer lg:px-4 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium whitespace-nowrap shrink-0 ${activity.status === 'arriving'
+                                    ? 'bg-sage-100 dark:bg-sage-900 text-sage-700 dark:text-sage-300'
+                                    : 'bg-terracotta bg-opacity-10 text-sand-100'
                                     }`}
                             >
                                 {activity.status === 'arriving' ? 'CHECK IN' : 'CHECK OUT'}

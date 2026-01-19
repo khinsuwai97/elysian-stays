@@ -19,7 +19,7 @@ export default function Logo() {
 
 
             <div>
-                <h1 className="text-2xl font-display font-semibold text-forest-800 dark:text-sand-100">
+                <h1 className="text-xl font-display font-semibold text-forest-800 dark:text-sand-100">
                     Elysian Stays
                 </h1>
                 <p className="text-sm text-sand-600 dark:text-sand-400">Luxury Retreats</p>

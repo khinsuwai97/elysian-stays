@@ -2,6 +2,7 @@ import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { EyeIcon, EyeOffIcon } from './Icons';
+import { LoadingSpinner } from './LoadingSpinner';
 
 export default function LoginPage() {
     const { login } = useAuth();
@@ -16,6 +17,7 @@ export default function LoginPage() {
 
         try {
             await login(email, password);
+
         } catch (error) {
             console.error('Login failed:', error);
         } finally {
@@ -93,13 +95,29 @@ export default function LoginPage() {
                                 </button>
                             </div>
                         </div>
-
-                        <button
+                        {/* {isLoading ? 'Logging in...' : 'Log in'} */}
+                        {/* <button
                             type="submit"
                             disabled={isLoading}
                             className="w-full btn-primary cursor-pointer"
                         >
-                            {isLoading ? 'Logging in...' : 'Log in'}
+                            {isLoading ? <LoadingSpinner size='sm' /> : "Log in"}
+
+                        </button> */}
+                        <button
+                            type="submit"
+                            disabled={isLoading}
+                            className="w-full btn-primary cursor-pointer h-12 flex items-center justify-center relative"
+                        >
+                            <span className={isLoading ? 'opacity-0' : 'opacity-100'}>
+                                Log in
+                            </span>
+
+                            {isLoading && (
+                                <span className="absolute">
+                                    <LoadingSpinner size="sm" />
+                                </span>
+                            )}
                         </button>
                     </form>
 
