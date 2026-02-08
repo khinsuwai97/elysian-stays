@@ -93,3 +93,4 @@ Currently uses mock data (`src/mockData/index.ts`) with simulated API delays. Th
 - The authentication has a hardcoded 1.5s delay to simulate network requests
 - When integrating a real backend, replace the mock API functions in `src/hooks/useData.ts`
 - TypeScript strict mode is enabled via separate app and node tsconfig files
+- Since it is a booking application, it will not be mobile responsive
